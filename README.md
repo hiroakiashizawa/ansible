@@ -1,0 +1,2 @@
+# ansible_at_aws
+AWSでansible検証用環境を構築してみる
