@@ -1,0 +1,16 @@
+- name: httpd status check
+  hosts: client
+  become: true
+  gather_facts: no
+
+  tasks:
+          - name: Install the latest version of Apache
+            yum: 
+              name: httpd
+              state: latest
+
+          - name: check httpd status
+            systemd:
+                    state: started
+                    name: httpd
+

@@ -1,0 +1,11 @@
+- hosts: client
+  become: true
+  gather_facts: no
+
+  tasks:
+
+  - name: "exec"
+    shell: systemctl start httpd
+    async: 45
+    poll: 0
+

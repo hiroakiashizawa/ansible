@@ -1,0 +1,15 @@
+- name: shell test
+  hosts: client
+  become: true
+  gather_facts: no
+
+  tasks:
+          - name: exec shell
+            shell: |
+                    systemctl is-active httpd
+                    
+            register: output
+
+          - name: output
+            debug: 
+                 msg: "{{ output.stdout_lines }}"

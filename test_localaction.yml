@@ -1,0 +1,12 @@
+- hosts: client
+  become: true
+  gather_facts: no
+  tasks:
+          - name: "uname -n"
+            shell: uname -n
+            register: output
+
+          - name: "local_action output"
+            become: true
+            local_action: copy content="{{ output.stdout }}" dest="/home/ansuser/test.txt"
+
